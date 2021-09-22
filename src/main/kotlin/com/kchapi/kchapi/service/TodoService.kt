@@ -20,8 +20,9 @@ class TodoService(
         return todoRepository.save(todo)
     }
 
-    fun updateTodo2(todoId: Long, todoContent: String): Todo {
+    fun updateTodo2(todoId: Long, todoName: String, todoContent: String): Todo {
         val todo = todoRepository.findByIdOrNull(todoId) ?: throw Exception()
+        todo.todoName = todoName
         todo.todoContent = todoContent
         return todoRepository.save(todo)
     }

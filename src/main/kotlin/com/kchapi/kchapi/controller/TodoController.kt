@@ -18,6 +18,9 @@ class TodoController(
     @PutMapping(path = ["/{todoId}"])
     fun updateTodo(@PathVariable(value = "todoId") todoId: Long) = todoService.updateTodo(todoId)
 
+    @PostMapping("/update")
+    fun updateTodo2(@RequestBody todoRequest: TodoRequest) = todoService.updateTodo2(todoRequest.todoId, todoRequest.todoName,todoRequest.todoContent)
+
     @DeleteMapping(path = ["/{todoId}"])
     fun deleteTodo(@PathVariable(value = "todoId") todoId: Long) = todoService.deleteTodo(todoId)
 
